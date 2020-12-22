@@ -68,6 +68,7 @@ public class SwiftFlutterCompassPlugin: NSObject, FlutterPlugin, FlutterStreamHa
                 let yaw = atan2(T[0, 1], T[1, 1]) + Double.pi / 2;
                 headingForCameraMode = (yaw + Double.pi * 2).truncatingRemainder(dividingBy: Double.pi * 2) * 180.0 / Double.pi;
             }
+            print("Emitting compass event")
             eventSink?([newHeading.magneticHeading, headingForCameraMode, newHeading.headingAccuracy]);
         }
     }
